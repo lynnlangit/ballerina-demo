@@ -3,7 +3,7 @@
 // Get payload from the POST request
 
 // To run it:
-// ballerina run demo.bal
+// ballerina run 2_demo_annotaions.bal
 // To invoke:
 // curl -X POST -d "Demo" localhost:9090
 
