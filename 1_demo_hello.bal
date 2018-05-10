@@ -1,8 +1,6 @@
 // The simplest hello world REST API
-// To run it:
-// ballerina run 1_demo_hello.bal
-// To invoke:
-// curl localhost:9090/hello/hi
+// To run it: "ballerina run 1_demo_hello.bal"
+// To invoke: "curl localhost:9090/hello/hi"
 
 import ballerina/http;
 
@@ -13,3 +11,4 @@ service<http:Service> hello bind {port:9090} {
        _ = caller->respond(res);
    }
 }
+
