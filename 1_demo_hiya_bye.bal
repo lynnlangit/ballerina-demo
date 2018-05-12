@@ -1,14 +1,14 @@
 // The simplest hello world REST API
-// To run it: "ballerina run 1_demo_hello.bal"
-// To invoke: "curl localhost:9090/hi/hihi"
+// To run it: "ballerina run 1_demo_hiya_bye.bal"
+// To invoke: "curl localhost:9090/hiya/hihi"
 // To invoke: "curl localhost:9091/bye/byebye"
 
 import ballerina/http;
 
-service<http:Service> hi bind {port:9090} {
+service<http:Service> hiya bind {port:9090} {
    hihi (endpoint caller, http:Request request) {
        http:Response res;
-       res.setTextPayload("Hello World!\n");
+       res.setTextPayload("Hiya World!\n");
        _ = caller->respond(res);
    }
 }
