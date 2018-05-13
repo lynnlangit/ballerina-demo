@@ -5,17 +5,16 @@
 
 import ballerina/http;
 
-// Change the base path by adding annotation to the service
+@Description {value:"change base path via annotation"}
 @http:ServiceConfig {basePath: "/"}
 service<http:Service> australianGreetings bind {port:9090} {
 
-   // Change the path by adding annotation to the resource
-   // Limit the calls to POST only 
+   @Description {value:"change path with annotation and limit to POST"}
    @http:ResourceConfig {path: "/",methods: ["POST"]}
    gday (endpoint caller, http:Request request) {
 
-       // Return from getTextPayload -  union of string | error
-       // Use check to remove the error
+       // Return from getTextPayload is a union of string | error
+       // Use check keyword to remove error return
        string payload = check request.getTextPayload();
        http:Response res;
        res.setTextPayload("Gday "+payload+"!\n");
