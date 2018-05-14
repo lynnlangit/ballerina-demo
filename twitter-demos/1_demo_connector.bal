@@ -4,10 +4,8 @@
 // ballerina search twitter
 // To get it for tab completion:
 // ballerina pull wso2/twitter
-// To run it:
-// ballerina run demo.bal --config twitter.toml
-// To invoke:
-// curl -X POST -d "Demo" localhost:9090
+// To run it: ballerina run demo.bal --config twitter.toml
+// To invoke: curl -X POST -d "Demo" localhost:9090
 
 import ballerina/http;
 // Pull and use wso2/twitter connector from http://central.ballerina.io

@@ -1,5 +1,5 @@
 // The simplest hello world REST API
-// To run it: "ballerina run 1_demo_hiya_bye.bal"
+// To run it: "ballerina run 1_hiya_bye.bal"
 // To invoke: "curl localhost:9090/hiya/hihi"
 // To invoke: "curl localhost:9091/bye/byebye"
 

@@ -1,6 +1,6 @@
 // Shows annotations for @ServiceConfig & @ResourceConfig
 
-// Run it: "ballerina run 2_demo_annotaions.bal"
+// Run it: "ballerina run 2_annotaions.bal"
 // Invoke: "curl -X POST -d "Lynn Langit" localhost:9090"
 
 import ballerina/http;
