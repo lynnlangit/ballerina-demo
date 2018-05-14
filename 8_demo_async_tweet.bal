@@ -1,7 +1,7 @@
 // Move all the invocation and tweeting functionality to another function
 // call it asynchronously
 
-// To run it: "ballerina run 8_demo_async.bal --config twitter.toml"
+// To run it: "ballerina run 8_demo_async_tweet.bal --config twitter.toml"
 // To invoke: "curl -X POST localhost:9090"
 // Invoke many times to show how quickly the function returns
 // then go to the browser and refresh a few times to see how gradually new tweets appear
