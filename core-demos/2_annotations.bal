@@ -13,8 +13,8 @@ service<http:Service> australianGreetings bind {port:9090} {
    @http:ResourceConfig {path: "/",methods: ["POST"]}
    gday (endpoint caller, http:Request request) {
 
-       // Return from getTextPayload is a union of string | error
-       // Use check keyword to remove error return
+       // getTextPayload return unions 'string | error'
+       // Remove 'error' via 'check'
        string payload = check request.getTextPayload();
        http:Response res;
        res.setTextPayload("Gday "+payload+"!\n");
