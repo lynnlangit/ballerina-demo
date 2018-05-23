@@ -1,15 +1,10 @@
 // Event streams and stream processing example
-// 'Event' = occurrence that happens at a clearly defined time & is recorded in a collection of fields 
-// 'Stream' = constant flow of data events
-
-// To invoke: "curl localhost:9090/nasdaq/publishQuote"
 
 import ballerina/http;
 import ballerina/io;
 
 type StockUpdate {string symbol;float price;};
 type Result {string symbol;int count;float average;};
-
 future f1 = start initStreamConsumer();
 stream<StockUpdate> inStream;
 
@@ -44,16 +39,14 @@ endpoint http:Listener listener {port:9090};
 
 @http:ServiceConfig {basePath: "/"}
 service<http:Service> nasdaq bind listener {
+    
     publishQuote (endpoint conn, http:Request req) {
 
         string reqStr = check req.getTextPayload();
         float stockPrice  = check <float> reqStr;
-
         string stockSymbol = "GOOG";
-        // Create a record from the content of the request.
-        StockUpdate stockUpdate = {symbol:stockSymbol,price:stockPrice};
 
-        // Publish the record (event to the stream) - forever block processes these events over time.
+        StockUpdate stockUpdate = {symbol:stockSymbol, price:stockPrice};
         inStream.publish(stockUpdate);
 
         http:Response res = new;
