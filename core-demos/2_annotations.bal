@@ -1,11 +1,8 @@
-// Shows annotations for @ServiceConfig & @ResourceConfig
-
 // Run it: "ballerina run 2_annotaions.bal"
 // Invoke: "curl -X POST -d "Lynn Langit" localhost:9090"
 
 import ballerina/http;
 
-@Description {value:"change base path via annotation"}
 @http:ServiceConfig {basePath: "/"}
 service<http:Service> australianGreetings bind {port:9090} {
 
@@ -13,11 +10,10 @@ service<http:Service> australianGreetings bind {port:9090} {
    @http:ResourceConfig {path: "/",methods: ["POST"]}
    gday (endpoint caller, http:Request request) {
 
-       // getTextPayload return unions 'string | error'
-       // Remove 'error' via 'check'
+       // getTextPayload return unions 'string | error' remove 'error' using 'check'
        string payload = check request.getTextPayload();
        http:Response res;
-       res.setTextPayload("Gday "+payload+"!\n");
+       res.setPayload("Gday "+payload+"!\n");
        _ = caller->respond(res);
    }
 }

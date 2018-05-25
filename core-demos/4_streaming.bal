@@ -1,3 +1,6 @@
+// from https://github.com/ballerina-guides/playground-streaming
+//curl -v -X POST -d '1001.1'  "http://localhost:9090/nasdaq/publishQuote" 
+
 import ballerina/http;
 import ballerina/io;
 
@@ -14,19 +17,15 @@ function initStreamConsumer () {
     resultStream.subscribe(quoteCountEventHandler);
     resultStream.subscribe(quoteAverageEventHandler);
 
-    // Create a never-ending stream via 'forever', consumes a event stream & then processes events in motion x a time window
-    // Select stock quote events w/price > 1000 within a time window of 3s.
-    // Count the # of stock quotes withn the time window for a given symbol & calc the avg price of all such stock quotes.
-    // Publish the result to the resultStream, which triggers the function handlers for that stream.
-    forever {
-        from inStream where price > 1000
-        window timeBatch(3000)
-        select symbol,
-            count(symbol) as count,
-            avg(price) as average
+    forever {                               // Create stream via 'forever', consume events & then x a time window
+        from inStream where price > 1000    // Select stock quote events w/price > 1000
+        window timeBatch(3000)              // within a time window of 3 seconds
+        select symbol,          
+            count(symbol) as count,         // Count the # of quotes by symbol within time window
+            avg(price) as average           // Calc the avg price of given quotes
         group by symbol
         => (Result [] result) {
-            resultStream.publish(result);
+            resultStream.publish(result);   // Publish to resultStream & trigger stream function handlers   
         }
     }
 }
