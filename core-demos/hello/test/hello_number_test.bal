@@ -1,4 +1,3 @@
-//Run via "ballerina run hello_number.bal"
 //Test via "ballerina test hello_number.bal"
 
 //Don't know how to test external file
