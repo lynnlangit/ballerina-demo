@@ -1,21 +1,15 @@
-//Run via "ballerina run 0a_hello_world.bal"
-
-import ballerina/io;
 import ballerina/test;
+import ballerina/io;
 
 string greeting = "Hello, World!";
-any[] outputs = [greeting];
 
-function main(string... args) returns (int) {
-    io:println("Hello, World!");
-    int num = 5; 
-    return num;
+function main(string... args) {
+    io:println(greeting);
 }
+
 
 @test:Config
 function testFunc() {
-    // Invoking the main function
-    int num = main();
-    test:assertEquals("Hello, World!", outputs[0]);
-    test:assertEquals(5, num);
+    main();
+    test:assertEquals(greeting,"Hello, World!",msg="string test failed");
 }
