@@ -1,10 +1,8 @@
 // Add another external web service endpoint
 // to compensate for slowness use circuit breaker
 
-// To run it:
-// ballerina run demo.bal --config twitter.toml
-// To invoke:
-// curl -X POST localhost:9090
+// Run it: `ballerina run demo.bal --config twitter.toml`
+// Invoke: `curl -X POST localhost:9090`
 // Invoke a few times to show that it is often slow
 
 import ballerina/http;
@@ -23,15 +21,12 @@ endpoint twitter:Client tw {
   clientConfig: {}  
 };
 
-@http:ServiceConfig {
-  basePath: "/"
-}
+@http:ServiceConfig {basePath: "/"}
 service<http:Service> hello bind {port:9090} {
-  @http:ResourceConfig {
-      path: "/",
-      methods: ["POST"]
-  }
+
+  @http:ResourceConfig {path: "/",methods: ["POST"]}
   hi (endpoint caller, http:Request request) {
+
       http:Response res;
 
       http:Response hResp = check homer->get("/quote");

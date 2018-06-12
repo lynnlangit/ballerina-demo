@@ -1,8 +1,6 @@
 // Add transformation: #ballerina to input, and JSON to output
-// To run it:
-// ballerina run demo.bal --config twitter.toml
-// To invoke:
-// curl -X POST -d "Demo" localhost:9090
+// To run it: `ballerina run demo.bal --config twitter.toml`
+// To invoke: `curl -X POST -d "Demo" localhost:9090`
 
 import ballerina/http;
 import wso2/twitter;

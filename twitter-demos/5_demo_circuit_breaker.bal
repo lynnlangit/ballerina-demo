@@ -1,8 +1,6 @@
 // To compensate for slowness use circuit breaker
-// To run it:
-// ballerina run demo_circuitbreaker.bal --config twitter.toml
-// To invoke:
-// curl -X POST localhost:9090
+// Run it: `ballerina run demo_circuitbreaker.bal --config twitter.toml`
+// Invoke: `curl -X POST localhost:9090`
 // Invoke many times to show how circuit breaker works
 
 import ballerina/http;
@@ -27,15 +25,12 @@ endpoint twitter:Client tw {
   clientConfig: {}  
 };
 
-@http:ServiceConfig {
-  basePath: "/"
-}
+@http:ServiceConfig {basePath: "/"}
 service<http:Service> hello bind {port: 9090} {
-  @http:ResourceConfig {
-      path: "/",
-      methods: ["POST"]
-  }
+
+  @http:ResourceConfig {path: "/",methods: ["POST"]}
   hi (endpoint caller, http:Request request) {
+      
       http:Response res;
 
       var v = homer->get("/quote");
