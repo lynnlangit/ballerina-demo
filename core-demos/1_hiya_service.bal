@@ -1,4 +1,4 @@
-// To run it: "ballerina run 1_hiya_bye.bal"
+// To run it: "ballerina run 1_hiya_service.bal"
 // To invoke: "curl localhost:9090/hiya/hihi"
 
 import ballerina/http;

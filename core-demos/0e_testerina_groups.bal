@@ -1,5 +1,5 @@
-//run `0e_ballerina test testerina_groups.bal --groups g1,g2`  - runs two of three
-//run `ballerina test testerina_groups.bal` -- runs all three
+//run `ballerina test 0e_testerina_groups.bal --groups g1,g2`  - runs two of three
+//run `ballerina test 0e_testerina_groups.bal` -- runs all three
 import ballerina/test;
 import ballerina/io;
 
