@@ -1,5 +1,5 @@
 // async demo w/keywords: future, start...await, multiple threads
-// to run              'ballerina run 3_async.bal'
+// to run              'ballerina run async.bal'
 // result should be    'SQ + CB = 1071612'
 
 import ballerina/io;
