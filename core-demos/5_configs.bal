@@ -10,5 +10,5 @@ import ballerina/config;
 
 function main(string... args) {
   string name = config:getAsString("hello.user.name");
-  io:println("Hello, " + name + " !");
+  io:println("Hello, " + name + "!");
 }
